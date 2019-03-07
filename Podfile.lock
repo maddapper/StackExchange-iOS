@@ -1,0 +1,49 @@
+PODS:
+  - FSAdSDK/Banner (0.3.1):
+    - FSAdSDK/Core
+    - FSAdSDK/DFP
+    - FSCache
+    - Protobuf
+  - FSAdSDK/Common (0.3.1):
+    - FSCache
+    - Protobuf
+  - FSAdSDK/Core (0.3.1):
+    - FSAdSDK/Common
+    - FSAdSDK/Registration
+    - FSCache
+    - Protobuf
+  - FSAdSDK/DFP (0.3.1):
+    - FSCache
+    - Protobuf
+  - FSAdSDK/Registration (0.3.1):
+    - FSCache
+    - Protobuf
+  - FSCache (0.0.1)
+  - Google-Mobile-Ads-SDK (7.24.1)
+  - PrebidMobileFS (0.5.8):
+    - FSCache
+  - Protobuf (3.7.0)
+
+DEPENDENCIES:
+  - FSAdSDK/Banner
+  - Google-Mobile-Ads-SDK (~> 7.24.1)
+  - PrebidMobileFS
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FSAdSDK
+    - FSCache
+    - Google-Mobile-Ads-SDK
+    - PrebidMobileFS
+    - Protobuf
+
+SPEC CHECKSUMS:
+  FSAdSDK: 5cf408e471d31d9871918224d56aaa7584ccd013
+  FSCache: c6ea4c84d130a4125f95899b2ce2e0b685e44f92
+  Google-Mobile-Ads-SDK: ed8004a7265b424568dc84f3d2bbe3ea3fff958f
+  PrebidMobileFS: 19ef8ae88696b2cfa6952d26c542557f3782e34a
+  Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
+
+PODFILE CHECKSUM: 6ff97b8dfe991500ca699d2198b63fc5a05b10e6
+
+COCOAPODS: 1.6.0.rc.2
