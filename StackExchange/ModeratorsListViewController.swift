@@ -27,6 +27,8 @@
 /// THE SOFTWARE.
 
 import UIKit
+import FSAdSDK
+import GoogleMobileAds
 
 class ModeratorsListViewController: UIViewController, AlertDisplayer {
   private enum CellIdentifiers {
@@ -42,6 +44,56 @@ class ModeratorsListViewController: UIViewController, AlertDisplayer {
   
   private var shouldShowLoadingCell = false
   
+  // MARK: Begin Freestar props
+  // note: only one instance of each banner can be shown at a time,
+  // so max 3 will be visible on the screen
+  
+  private lazy var adUnitID1 = {
+    return "/\(FreestarConstants.dfpAccountId)/\(FreestarConstants.adPlacement1)"
+  }()
+  private lazy var adUnitID2 = {
+    return "/\(FreestarConstants.dfpAccountId)/\(FreestarConstants.adPlacement2)"
+  }()
+  private lazy var adUnitID3 = {
+    return "/\(FreestarConstants.dfpAccountId)\(FreestarConstants.adPlacement3)"
+  }()
+
+  lazy var bannerView1: (UIView & FSBanner)? = {
+    return FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement1, size: kGADAdSizeBanner, adUnitId: adUnitID1, rootViewController: self, registrationDelegate: nil, eventHandler: { [weak self]
+      (methodName: String!, params: [ String : Any]) in
+      // custom behavior here
+    })
+  }()
+  
+  lazy var bannerView2: (UIView & FSBanner)? = {
+    return FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement2, size: kGADAdSizeMediumRectangle, adUnitId: adUnitID2, rootViewController: self, registrationDelegate: nil, eventHandler: { [weak self]
+      (methodName: String!, params: [ String : Any]) in
+      // custom behavior here
+    })
+  }()
+  
+  lazy var bannerView3: (UIView & FSBanner)? = {
+    return FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement3, size: kGADAdSizeLargeBanner, adUnitId: adUnitID3, rootViewController: self, registrationDelegate: nil, eventHandler: { [weak self]
+      (methodName: String!, params: [ String : Any]) in
+      // custom behavior here
+    })
+  }()
+  // MARK: End Freestar props
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    // Freestar banner refresh pause
+    bannerView1?.pauseRefresh()
+    bannerView2?.pauseRefresh()
+    bannerView3?.pauseRefresh()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    // Freestar banner refresh resume
+    bannerView1?.resumeRefresh()
+    bannerView2?.resumeRefresh()
+    bannerView3?.resumeRefresh()
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -51,16 +103,20 @@ class ModeratorsListViewController: UIViewController, AlertDisplayer {
     tableView.isHidden = true
     tableView.separatorColor = ColorPalette.RWGreen
     tableView.dataSource = self
+    tableView.delegate = self
     tableView.prefetchDataSource = self
     
     let request = ModeratorRequest.from(site: site)
     viewModel = ModeratorsViewModel(request: request, delegate: self)
     
-    viewModel.fetchModerators()    
+    viewModel.fetchModerators()
+    
+    // Freestar load banners
+    loadBannerRequests()
   }
 }
 
-extension ModeratorsListViewController: UITableViewDataSource {
+extension ModeratorsListViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // 1
     return viewModel.totalCount
@@ -68,13 +124,36 @@ extension ModeratorsListViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.list, for: indexPath) as! ModeratorTableViewCell
-    // 2
-    if isLoadingCell(for: indexPath) {
-      cell.configure(with: .none)
+    
+    // Freestar check if row is banner
+    if isBannerRow(indexPath.row) {
+      cell.removeFromSuperview()
+      // setup banner cell
+      let bannerCell: UITableViewCell = UITableViewCell()
+      bannerCell.backgroundColor = UIColor.groupTableViewBackground
+      let banner: (UIView & FSBanner)? = bannerForIndex(indexPath.row)
+      bannerCell.contentView.addSubview(banner!)
+      anchorBanner(banner, size: banner!.fsAdSize)
+      return bannerCell
     } else {
-      cell.configure(with: viewModel.moderator(at: indexPath.row))
+      // 2
+      if isLoadingCell(for: indexPath) {
+        cell.configure(with: .none)
+      } else {
+        cell.configure(with: viewModel.moderator(at: indexPath.row))
+      }
     }
     return cell
+  }
+  
+  // Freestar banner height
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    if isBannerRow(indexPath.row) {
+      return sizeForBannerIndex(indexPath.row).height
+    } else {
+      // non-banner row
+      return FreestarConstants.listCellHeight
+    }
   }
 }
 
@@ -95,14 +174,15 @@ extension ModeratorsListViewController: ModeratorsViewModelDelegate {
       tableView.reloadData()
       return
     }
+    
     // 2
     let indexPathsToReload = visibleIndexPathsToReload(intersecting: newIndexPathsToReload)
     tableView.reloadRows(at: indexPathsToReload, with: .automatic)
   }
-  
+
   func onFetchFailed(with reason: String) {
     indicatorView.stopAnimating()
-    
+
     let title = "Warning".localizedString
     let action = UIAlertAction(title: "OK".localizedString, style: .default)
     displayAlert(with: title , message: reason, actions: [action])

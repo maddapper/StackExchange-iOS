@@ -1,4 +1,4 @@
-/// Copyright (c) 2018 Razeware LLC
+/// Copyright (c) 2019 Razeware LLC
 /// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -26,37 +26,15 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import UIKit
-import FSAdSDK
-import FSCommon
-import PrebidMobileFS
+import Foundation
+import CoreGraphics
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-  var window: UIWindow?
-  
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    
-    // method to initialize the Freestar SDK
-    initializeFreestar()
-    return true
-  }
-  
-  // MARK: Freestar SDK initialization
-  func initializeFreestar() {
-    // Freestar Mobile SDK setup
-    FSLogManager.setFSLogLevel(FSLogLevel.debug)
-    PBAnalyticsManager.sharedInstance()?.enabled = true
-    FSRegistration.register { (status, adUnits) in
-      // optional for first ad load
-      if (status == .success) {
-        // status or informational
-        for adUnit in adUnits! {
-          print("\(adUnit.identifier!) | \(adUnit.adSizes!)")
-        }
-      }
-    }
-  }
-    
+struct FreestarConstants {
+  static let dfpAccountId = "15184186"
+  static let adPlacement1 = "Freestar_Test_320x50"
+  static let adPlacement2 = "Freestar_Test_300x250"
+  static let adPlacement3 = "Freestar_Test_320x100"
+  static let listViewModulus = 7
+  static let bannerCount = 3
+  static let listCellHeight = CGFloat(60)
 }
-
