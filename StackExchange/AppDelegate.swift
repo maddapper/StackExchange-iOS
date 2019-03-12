@@ -28,7 +28,6 @@
 
 import UIKit
 import FSAdSDK
-import FSCommon
 import PrebidMobileFS
 
 @UIApplicationMain
@@ -36,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    
     // method to initialize the Freestar SDK
     initializeFreestar()
     return true
@@ -44,8 +42,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   // MARK: Freestar SDK initialization
   func initializeFreestar() {
+    // Prebid logging
+    PBLogManager.setPBLogLevel(PBLogLevel.off)
+
     // Freestar Mobile SDK setup
-    FSLogManager.setFSLogLevel(FSLogLevel.debug)
     PBAnalyticsManager.sharedInstance()?.enabled = true
     FSRegistration.register { (status, adUnits) in
       // optional for first ad load
