@@ -97,11 +97,11 @@ extension ModeratorsListViewController {
     let bannerIndex = divisor % FreestarConstants.bannerCount
     switch bannerIndex {
     case 0:
-      return CGSize(width: 320, height: 50)
+      return CGSize(width: 320, height: 52)
     case 1:
-      return CGSize(width: 300, height: 250)
+      return CGSize(width: 300, height: 252)
     case 2:
-      return CGSize(width: 320, height: 100)
+      return CGSize(width: 320, height: 102)
     default:
       preconditionFailure("Freestar banner index is not being calculated correctly.")
     }

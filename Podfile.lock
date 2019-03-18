@@ -20,7 +20,7 @@ PODS:
     - Protobuf
   - FSCache (0.0.1)
   - Google-Mobile-Ads-SDK (7.24.1)
-  - PrebidMobileFS (0.5.8):
+  - PrebidMobileFS (0.5.9):
     - FSCache
   - Protobuf (3.7.0)
 
@@ -41,9 +41,9 @@ SPEC CHECKSUMS:
   FSAdSDK: 5cf408e471d31d9871918224d56aaa7584ccd013
   FSCache: c6ea4c84d130a4125f95899b2ce2e0b685e44f92
   Google-Mobile-Ads-SDK: ed8004a7265b424568dc84f3d2bbe3ea3fff958f
-  PrebidMobileFS: 19ef8ae88696b2cfa6952d26c542557f3782e34a
+  PrebidMobileFS: 400e3018de156bbd0e489e2917a7447ace20aa8c
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
 
-PODFILE CHECKSUM: 6ff97b8dfe991500ca699d2198b63fc5a05b10e6
+PODFILE CHECKSUM: b9bf10a5e380f8fc25734d031c2813d63400b017
 
 COCOAPODS: 1.6.0.rc.2

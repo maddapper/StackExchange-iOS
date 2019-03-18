@@ -46,8 +46,6 @@ final class StackExchangeClient {
     let parameters = ["page": "\(page)"].merging(request.parameters, uniquingKeysWith: +)
     // 3
     let encodedURLRequest = urlRequest.encode(with: parameters)
-    
-    print(encodedURLRequest)
     session.dataTask(with: encodedURLRequest, completionHandler: { data, response, error in
       // 4
       guard

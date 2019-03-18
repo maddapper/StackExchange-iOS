@@ -42,18 +42,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   // MARK: Freestar SDK initialization
   func initializeFreestar() {
+    print("[Freestar_Validation]: Initializing SDK.")
     // Prebid logging
-    PBLogManager.setPBLogLevel(PBLogLevel.off)
+    PBLogManager.setPBLogLevel(PBLogLevel.debug)
 
     // Freestar Mobile SDK setup
     PBAnalyticsManager.sharedInstance()?.enabled = true
+    
+//    FSAdSDK.overrideBundleIdentifier("io.freestar.mobile.Freestar-News")
+//    PrebidMobile.overrideBundleIdentifier("io.freestar.mobile.Freestar-News")
+    
+    print("[Freestar_Validation]: Begin ad unit registration.")
     FSRegistration.register { (status, adUnits) in
       // optional for first ad load
       if (status == .success) {
         // status or informational
         for adUnit in adUnits! {
-          print("\(adUnit.identifier!) | \(adUnit.adSizes!)")
+          print("[Freestar_Validation]: \(adUnit.identifier!) | \(adUnit.adSizes!)")
         }
+        print("[Freestar_Validation]: SUCCESS.")
+      } else {
+        print("[Freestar_Validation]: FAILURE.")
       }
     }
   }
