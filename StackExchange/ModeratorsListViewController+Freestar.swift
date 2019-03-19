@@ -30,6 +30,7 @@ import Foundation
 import CoreGraphics
 import FSAdSDK
 import GoogleMobileAds
+import SnapKit
 
 // MARK: Freestar Ad extension
 extension ModeratorsListViewController {
@@ -43,23 +44,16 @@ extension ModeratorsListViewController {
   
   // banner layout
   func anchorBanners() {
-    anchorBanner(bannerView1, size: CGSize(width: 320, height: 50))
-    anchorBanner(bannerView2, size: CGSize(width: 300, height: 250))
-    anchorBanner(bannerView3, size: CGSize(width: 320, height: 100))
+    anchorBanner(bannerView1, size: CGSize(width: 300, height: 250))
+    anchorBanner(bannerView2, size: CGSize(width: 320, height: 100))
+    anchorBanner(bannerView3, size: CGSize(width: 320, height: 50))
   }
   
   // layout helper
   func anchorBanner(_ banner: UIView?, size: CGSize) {
-    DispatchQueue.main.async {
-      if #available(iOS 9.0, *) {
-        banner?.translatesAutoresizingMaskIntoConstraints = false
-        banner?.widthAnchor.constraint(equalToConstant: size.width).isActive = true
-        banner?.heightAnchor.constraint(equalToConstant: size.height).isActive = true
-        if (banner!.superview != nil) {
-          banner?.centerXAnchor.constraint(equalTo: banner!.superview!.centerXAnchor).isActive = true
-          banner?.centerYAnchor.constraint(equalTo: banner!.superview!.centerYAnchor).isActive = true
-        }
-      }
+    banner!.snp.makeConstraints { (make) in
+      make.centerY.centerX.equalTo(banner!.superview!)
+      make.size.equalTo(size)
     }
   }
   
@@ -97,11 +91,11 @@ extension ModeratorsListViewController {
     let bannerIndex = divisor % FreestarConstants.bannerCount
     switch bannerIndex {
     case 0:
-      return CGSize(width: 320, height: 52)
-    case 1:
       return CGSize(width: 300, height: 252)
-    case 2:
+    case 1:
       return CGSize(width: 320, height: 102)
+    case 2:      
+      return CGSize(width: 320, height: 52)
     default:
       preconditionFailure("Freestar banner index is not being calculated correctly.")
     }

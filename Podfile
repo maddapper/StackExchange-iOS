@@ -4,6 +4,7 @@ use_frameworks!
 
 target 'StackExchange' do
    pod 'Google-Mobile-Ads-SDK', '~> 7.24.1'
+   pod 'SnapKit'
    pod 'PrebidMobileFS'
    pod 'FSAdSDK/Banner'
 end

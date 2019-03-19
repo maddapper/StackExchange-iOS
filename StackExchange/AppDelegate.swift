@@ -49,8 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Freestar Mobile SDK setup
     PBAnalyticsManager.sharedInstance()?.enabled = true
     
-//    FSAdSDK.overrideBundleIdentifier("io.freestar.mobile.Freestar-News")
-//    PrebidMobile.overrideBundleIdentifier("io.freestar.mobile.Freestar-News")
+    FSAdSDK.overrideBundleIdentifier("io.freestar.mobile.Freestar-News")
+    PrebidMobile.overrideBundleIdentifier("io.freestar.mobile.Freestar-News")
     
     print("[Freestar_Validation]: Begin ad unit registration.")
     FSRegistration.register { (status, adUnits) in

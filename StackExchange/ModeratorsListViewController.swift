@@ -29,6 +29,7 @@
 import UIKit
 import FSAdSDK
 import GoogleMobileAds
+import SnapKit
 
 class ModeratorsListViewController: UIViewController, AlertDisplayer {
   private enum CellIdentifiers {
@@ -59,21 +60,21 @@ class ModeratorsListViewController: UIViewController, AlertDisplayer {
   }()
 
   lazy var bannerView1: (UIView & FSBanner)? = {
-    return FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement1, size: kGADAdSizeBanner, adUnitId: adUnitID1, rootViewController: self, registrationDelegate: nil, eventHandler: { [weak self]
-      (methodName: String!, params: [ String : Any]) in
-      // custom behavior here
-    })
-  }()
-  
-  lazy var bannerView2: (UIView & FSBanner)? = {
     return FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement2, size: kGADAdSizeMediumRectangle, adUnitId: adUnitID2, rootViewController: self, registrationDelegate: nil, eventHandler: { [weak self]
       (methodName: String!, params: [ String : Any]) in
       // custom behavior here
     })
   }()
   
-  lazy var bannerView3: (UIView & FSBanner)? = {
+  lazy var bannerView2: (UIView & FSBanner)? = {
     return FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement3, size: kGADAdSizeLargeBanner, adUnitId: adUnitID3, rootViewController: self, registrationDelegate: nil, eventHandler: { [weak self]
+      (methodName: String!, params: [ String : Any]) in
+      // custom behavior here
+    })
+  }()
+  
+  lazy var bannerView3: (UIView & FSBanner)? = {
+    return FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement1, size: kGADAdSizeBanner, adUnitId: adUnitID1, rootViewController: self, registrationDelegate: nil, eventHandler: { [weak self]
       (methodName: String!, params: [ String : Any]) in
       // custom behavior here
     })
@@ -105,6 +106,19 @@ class ModeratorsListViewController: UIViewController, AlertDisplayer {
     tableView.dataSource = self
     tableView.delegate = self
     tableView.prefetchDataSource = self
+    tableView.snp.makeConstraints { (make) -> Void in
+      make.left.equalTo(view.safeAreaLayoutGuide.snp.left)
+      make.right.equalTo(view.safeAreaLayoutGuide.snp.right)
+      make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+      make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        .offset(-(bannerView3!.bounds.height + FreestarConstants.bannerContainerTopMargin))
+    }
+    
+    self.view.addSubview(bannerView3!)
+    bannerView3!.snp.makeConstraints { (make) -> Void in
+      make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+      make.centerX.equalTo(bannerView3!.superview!)
+    }
     
     let request = ModeratorRequest.from(site: site)
     viewModel = ModeratorsViewModel(request: request, delegate: self)
