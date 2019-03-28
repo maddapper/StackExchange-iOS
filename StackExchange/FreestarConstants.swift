@@ -31,7 +31,8 @@ import CoreGraphics
 
 struct FreestarConstants {
   static let dfpAccountId = "15184186"
-  static let adPlacement1 = "Freestar_Test_320x50"
+  static let dfpAccountIdBarstool = "57249056"
+  static let adPlacement1 = "Latest_Fixed-Bottom-319"
   static let adPlacement2 = "Freestar_Test_300x250"
   static let adPlacement3 = "Freestar_Test_320x100"
   static let listViewModulus = 18

@@ -50,7 +50,7 @@ class ModeratorsListViewController: UIViewController, AlertDisplayer {
   // so max 3 will be visible on the screen
   
   private lazy var adUnitID1 = {
-    return "/\(FreestarConstants.dfpAccountId)/\(FreestarConstants.adPlacement1)"
+    return "/\(FreestarConstants.dfpAccountIdBarstool)/in-app/\(FreestarConstants.adPlacement1)"
   }()
   private lazy var adUnitID2 = {
     return "/\(FreestarConstants.dfpAccountId)/\(FreestarConstants.adPlacement2)"

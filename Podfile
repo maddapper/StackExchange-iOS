@@ -7,4 +7,6 @@ target 'StackExchange' do
    pod 'SnapKit'
    pod 'PrebidMobileFS'
    pod 'FSAdSDK/Banner'
+#   pod 'FSAdSDK/Banner', :git => 'https://github.com/freestarcapital/freestar-ios-sdk.git', :branch => 'mopub'
+#   pod 'FSAdSDK/Mediation/MoPub', :git => 'https://github.com/freestarcapital/freestar-ios-sdk.git', :branch => 'mopub'
 end
