@@ -41,7 +41,10 @@ struct ModeratorRequest {
 
 extension ModeratorRequest {
   static func from(site: String) -> ModeratorRequest {
-    let defaultParameters = ["order": "desc", "sort": "reputation", "filter": "!-*jbN0CeyJHb"]
+    let defaultParameters = ["order": "desc",
+                             "sort": "reputation",
+                             "filter": "!-*jbN0CeyJHb"]
+//                             "key" : "rsGCqGlOshGEoLJztYw8cg(("]
     let parameters = ["site": "\(site)"].merging(defaultParameters, uniquingKeysWith: +)
     return ModeratorRequest(parameters: parameters)
   }

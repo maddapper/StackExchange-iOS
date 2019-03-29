@@ -37,16 +37,16 @@ extension ModeratorsListViewController {
   
   // load banners
   func loadBannerRequests() {
-    bannerView1?.load(DFPRequest())
-    bannerView2?.load(DFPRequest())
-    bannerView3?.load(DFPRequest())
+    for banner in allBanners {
+      banner?.load(DFPRequest())
+    }
   }
   
   // banner layout
   func anchorBanners() {
-    anchorBanner(bannerView1, size: CGSize(width: 300, height: 250))
-    anchorBanner(bannerView2, size: CGSize(width: 320, height: 100))
-    anchorBanner(bannerView3, size: CGSize(width: 320, height: 50))
+    for banner in allBanners {
+      anchorBanner(banner, size: CGSize(width: 320, height: 50))
+    }
   }
   
   // layout helper
@@ -73,11 +73,17 @@ extension ModeratorsListViewController {
     let bannerIndex = divisor % FreestarConstants.bannerCount
     switch bannerIndex {
       case 0:
-        return bannerView1
-      case 1:
         return bannerView2
-      case 2:
+      case 1:
         return bannerView3
+      case 2:
+        return bannerView4
+      case 3:
+        return bannerView5
+      case 4:
+        return bannerView6
+      case 5:
+        return bannerView7
       default:
         preconditionFailure("Freestar banner index is not being calculated correctly.")
     }
@@ -91,10 +97,16 @@ extension ModeratorsListViewController {
     let bannerIndex = divisor % FreestarConstants.bannerCount
     switch bannerIndex {
     case 0:
-      return CGSize(width: 300, height: 252)
+      return CGSize(width: 320, height: 52)
     case 1:
-      return CGSize(width: 320, height: 102)
+      return CGSize(width: 320, height: 52)
     case 2:      
+      return CGSize(width: 320, height: 52)
+    case 3:
+      return CGSize(width: 320, height: 52)
+    case 4:
+      return CGSize(width: 320, height: 52)
+    case 5:
       return CGSize(width: 320, height: 52)
     default:
       preconditionFailure("Freestar banner index is not being calculated correctly.")

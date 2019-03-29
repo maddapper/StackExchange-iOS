@@ -31,11 +31,15 @@ import CoreGraphics
 
 struct FreestarConstants {
   static let dfpAccountId = "15184186"
-  static let adPlacement1 = "Freestar_Test_320x50"
-  static let adPlacement2 = "Freestar_Test_300x250"
-  static let adPlacement3 = "Freestar_Test_320x100"
-  static let listViewModulus = 18
-  static let bannerCount = 2
+  static let adPlacement1 = "gmappedometer_app_320x50_1"
+  static let adPlacement2 = "gmappedometer_app_320x50_2"
+  static let adPlacement3 = "gmappedometer_app_320x50_3"
+  static let adPlacement4 = "gmappedometer_app_320x50_4"
+  static let adPlacement5 = "gmappedometer_app_320x50_5"
+  static let adPlacement6 = "gmappedometer_app_320x50_6"
+  static let adPlacement7 = "gmappedometer_app_320x50_7"
+  static let listViewModulus = 4
+  static let bannerCount = 6
   static let listCellHeight = CGFloat(60)
   static let bannerContainerTopMargin = CGFloat(10)
 }

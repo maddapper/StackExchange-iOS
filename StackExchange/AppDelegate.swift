@@ -49,8 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Freestar Mobile SDK setup
     PBAnalyticsManager.sharedInstance()?.enabled = true
     
-//    FSAdSDK.overrideBundleIdentifier("")
-//    PrebidMobile.overrideBundleIdentifier("")
+    FSAdSDK.overrideBundleIdentifier("com.groovypartners.milermetertracker")
+    PrebidMobile.overrideBundleIdentifier("com.groovypartners.milermetertracker")
     
     print("[Freestar_Validation]: Begin ad unit registration.")
     FSRegistration.register { (status, adUnits) in

@@ -29,6 +29,7 @@
 import Foundation
 
 final class StackExchangeClient {
+  private var authenticated: Bool = false
   private lazy var baseURL: URL = {
     return URL(string: "http://api.stackexchange.com/2.2/")!
   }()

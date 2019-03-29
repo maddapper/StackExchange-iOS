@@ -25,7 +25,6 @@
 		9AA0426D203C887E00227AEA /* DataResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0425C203C887E00227AEA /* DataResponseError.swift */; };
 		9AA0426E203C887E00227AEA /* Moderator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0425D203C887E00227AEA /* Moderator.swift */; };
 		9AA04270203C887E00227AEA /* ModeratorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA0425F203C887E00227AEA /* ModeratorsViewModel.swift */; };
-		9AA04271203C887E00227AEA /* AlertDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA04260203C887E00227AEA /* AlertDisplayer.swift */; };
 		9AA04272203C887E00227AEA /* StackExchangeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA04261203C887E00227AEA /* StackExchangeClient.swift */; };
 		9AA04273203C887E00227AEA /* ModeratorsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA04262203C887E00227AEA /* ModeratorsSearchViewController.swift */; };
 		9AA04274203C887E00227AEA /* HTTPURLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA04263203C887E00227AEA /* HTTPURLResponse.swift */; };
@@ -55,7 +54,6 @@
 		9AA0425C203C887E00227AEA /* DataResponseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataResponseError.swift; sourceTree = "<group>"; };
 		9AA0425D203C887E00227AEA /* Moderator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moderator.swift; sourceTree = "<group>"; };
 		9AA0425F203C887E00227AEA /* ModeratorsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeratorsViewModel.swift; sourceTree = "<group>"; };
-		9AA04260203C887E00227AEA /* AlertDisplayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertDisplayer.swift; sourceTree = "<group>"; };
 		9AA04261203C887E00227AEA /* StackExchangeClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackExchangeClient.swift; sourceTree = "<group>"; };
 		9AA04262203C887E00227AEA /* ModeratorsSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeratorsSearchViewController.swift; sourceTree = "<group>"; };
 		9AA04263203C887E00227AEA /* HTTPURLResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPURLResponse.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 		9AA04277203C88ED00227AEA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				9AA04260203C887E00227AEA /* AlertDisplayer.swift */,
 				1E8337A22042F53900265603 /* Double+Extensions.swift */,
 				9AA04258203C887D00227AEA /* String+Extensions.swift */,
 				9AA04255203C887D00227AEA /* UITextField+Extensions.swift */,
@@ -324,6 +321,7 @@
 				"${PODS_ROOT}/FSAdSDK/SDK/FSDFP.framework",
 				"${PODS_ROOT}/FSAdSDK/SDK/FSAdSDK.framework",
 				"${PODS_ROOT}/FSCache/build/FSCache.framework",
+				"${BUILT_PRODUCTS_DIR}/OAuthSwift/OAuthSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/PrebidMobileFS/PrebidMobileFS.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -336,6 +334,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSDFP.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSAdSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OAuthSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PrebidMobileFS.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -355,7 +354,6 @@
 				9AA04269203C887E00227AEA /* String+Extensions.swift in Sources */,
 				9AA04270203C887E00227AEA /* ModeratorsViewModel.swift in Sources */,
 				9AA04273203C887E00227AEA /* ModeratorsSearchViewController.swift in Sources */,
-				9AA04271203C887E00227AEA /* AlertDisplayer.swift in Sources */,
 				1E8337A32042F53900265603 /* Double+Extensions.swift in Sources */,
 				9AA0426C203C887E00227AEA /* ModeratorsListViewController.swift in Sources */,
 				9AA04268203C887E00227AEA /* ModeratorTableViewCell.swift in Sources */,
@@ -509,6 +507,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = FLA943DDZ8;
 				INFOPLIST_FILE = StackExchange/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.freestar.mobile.Freestar-StackExchange";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -526,6 +525,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = FLA943DDZ8;
 				INFOPLIST_FILE = StackExchange/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.freestar.mobile.Freestar-StackExchange";
 				PRODUCT_NAME = "$(TARGET_NAME)";

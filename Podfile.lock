@@ -20,6 +20,7 @@ PODS:
     - Protobuf
   - FSCache (0.0.1)
   - Google-Mobile-Ads-SDK (7.24.1)
+  - OAuthSwift (1.3.0)
   - PrebidMobileFS (0.5.9):
     - FSCache
   - Protobuf (3.7.0)
@@ -28,6 +29,7 @@ PODS:
 DEPENDENCIES:
   - FSAdSDK/Banner
   - Google-Mobile-Ads-SDK (~> 7.24.1)
+  - OAuthSwift (~> 1.3.0)
   - PrebidMobileFS
   - SnapKit
 
@@ -36,6 +38,7 @@ SPEC REPOS:
     - FSAdSDK
     - FSCache
     - Google-Mobile-Ads-SDK
+    - OAuthSwift
     - PrebidMobileFS
     - Protobuf
     - SnapKit
@@ -44,10 +47,11 @@ SPEC CHECKSUMS:
   FSAdSDK: 5cf408e471d31d9871918224d56aaa7584ccd013
   FSCache: c6ea4c84d130a4125f95899b2ce2e0b685e44f92
   Google-Mobile-Ads-SDK: ed8004a7265b424568dc84f3d2bbe3ea3fff958f
+  OAuthSwift: 7ef2f74cb570e1e30e2aeddc58fccc0f3891d057
   PrebidMobileFS: 400e3018de156bbd0e489e2917a7447ace20aa8c
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: e3d1ec5e3cb5bd0601576d7c27fed7b0d393840c
+PODFILE CHECKSUM: 3639ea6c048ae7db3b95e837b5628a86ca2323a8
 
 COCOAPODS: 1.6.0.rc.2

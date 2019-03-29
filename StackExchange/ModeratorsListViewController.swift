@@ -31,7 +31,7 @@ import FSAdSDK
 import GoogleMobileAds
 import SnapKit
 
-class ModeratorsListViewController: UIViewController, AlertDisplayer {
+class ModeratorsListViewController: UIViewController {
   private enum CellIdentifiers {
     static let list = "List"
   }
@@ -56,29 +56,81 @@ class ModeratorsListViewController: UIViewController, AlertDisplayer {
     return "/\(FreestarConstants.dfpAccountId)/\(FreestarConstants.adPlacement2)"
   }()
   private lazy var adUnitID3 = {
-    return "/\(FreestarConstants.dfpAccountId)\(FreestarConstants.adPlacement3)"
+    return "/\(FreestarConstants.dfpAccountId)/\(FreestarConstants.adPlacement3)"
+  }()
+  private lazy var adUnitID4 = {
+    return "/\(FreestarConstants.dfpAccountId)/\(FreestarConstants.adPlacement4)"
+  }()
+  private lazy var adUnitID5 = {
+    return "/\(FreestarConstants.dfpAccountId)/\(FreestarConstants.adPlacement5)"
+  }()
+  private lazy var adUnitID6 = {
+    return "/\(FreestarConstants.dfpAccountId)/\(FreestarConstants.adPlacement6)"
+  }()
+  private lazy var adUnitID7 = {
+    return "/\(FreestarConstants.dfpAccountId)/\(FreestarConstants.adPlacement7)"
   }()
 
   lazy var bannerView1: (UIView & FSBanner)? = {
-    return FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement2, size: kGADAdSizeMediumRectangle, adUnitId: adUnitID2, rootViewController: self, registrationDelegate: nil, eventHandler: { [weak self]
+    return FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement1, size: kGADAdSizeBanner, adUnitId: adUnitID1, rootViewController: self, registrationDelegate: nil, eventHandler: { [weak self]
       (methodName: String!, params: [ String : Any]) in
       // custom behavior here
+      print("methodName: \(methodName!) adUnit: \(self!.adUnitID1)")
     })
   }()
   
   lazy var bannerView2: (UIView & FSBanner)? = {
-    return FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement3, size: kGADAdSizeLargeBanner, adUnitId: adUnitID3, rootViewController: self, registrationDelegate: nil, eventHandler: { [weak self]
+    return FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement2, size: kGADAdSizeBanner, adUnitId: adUnitID2, rootViewController: self, registrationDelegate: nil, eventHandler: { [weak self]
       (methodName: String!, params: [ String : Any]) in
       // custom behavior here
+      print("methodName: \(methodName!) adUnit: \(self!.adUnitID2)")
     })
   }()
   
   lazy var bannerView3: (UIView & FSBanner)? = {
-    return FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement1, size: kGADAdSizeBanner, adUnitId: adUnitID1, rootViewController: self, registrationDelegate: nil, eventHandler: { [weak self]
+    return FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement3, size: kGADAdSizeBanner, adUnitId: adUnitID3, rootViewController: self, registrationDelegate: nil, eventHandler: { [weak self]
       (methodName: String!, params: [ String : Any]) in
       // custom behavior here
+      print("methodName: \(methodName!) adUnit: \(self!.adUnitID3)")
     })
   }()
+  
+  lazy var bannerView4: (UIView & FSBanner)? = {
+    return FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement4, size: kGADAdSizeBanner, adUnitId: adUnitID4, rootViewController: self, registrationDelegate: nil, eventHandler: { [weak self]
+      (methodName: String!, params: [ String : Any]) in
+      // custom behavior here
+      print("methodName: \(methodName!) adUnit: \(self!.adUnitID4)")
+    })
+  }()
+  
+  lazy var bannerView5: (UIView & FSBanner)? = {
+    return FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement5, size: kGADAdSizeBanner, adUnitId: adUnitID5, rootViewController: self, registrationDelegate: nil, eventHandler: { [weak self]
+      (methodName: String!, params: [ String : Any]) in
+      // custom behavior here
+      print("methodName: \(methodName!) adUnit: \(self!.adUnitID5)")
+    })
+  }()
+  
+  lazy var bannerView6: (UIView & FSBanner)? = {
+    return FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement6, size: kGADAdSizeBanner, adUnitId: adUnitID6, rootViewController: self, registrationDelegate: nil, eventHandler: { [weak self]
+      (methodName: String!, params: [ String : Any]) in
+      // custom behavior here
+      print("methodName: \(methodName!) adUnit: \(self!.adUnitID6)")
+    })
+  }()
+  
+  lazy var bannerView7: (UIView & FSBanner)? = {
+    return FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement7, size: kGADAdSizeBanner, adUnitId: adUnitID7, rootViewController: self, registrationDelegate: nil, eventHandler: { [weak self]
+      (methodName: String!, params: [ String : Any]) in
+      // custom behavior here
+      print("methodName: \(methodName!) adUnit: \(self!.adUnitID7)")
+    })
+  }()
+
+  lazy var allBanners: [(UIView & FSBanner)?] = {
+    return [bannerView1, bannerView2, bannerView3, bannerView4, bannerView5, bannerView6, bannerView7]
+  }()
+  
   // MARK: End Freestar props
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -86,6 +138,10 @@ class ModeratorsListViewController: UIViewController, AlertDisplayer {
     bannerView1?.pauseRefresh()
     bannerView2?.pauseRefresh()
     bannerView3?.pauseRefresh()
+    bannerView4?.pauseRefresh()
+    bannerView5?.pauseRefresh()
+    bannerView6?.pauseRefresh()
+    bannerView7?.pauseRefresh()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -93,6 +149,10 @@ class ModeratorsListViewController: UIViewController, AlertDisplayer {
     bannerView1?.resumeRefresh()
     bannerView2?.resumeRefresh()
     bannerView3?.resumeRefresh()
+    bannerView4?.resumeRefresh()
+    bannerView5?.resumeRefresh()
+    bannerView6?.resumeRefresh()
+    bannerView7?.resumeRefresh()
   }
 
   override func viewDidLoad() {
@@ -111,13 +171,13 @@ class ModeratorsListViewController: UIViewController, AlertDisplayer {
       make.right.equalTo(view.safeAreaLayoutGuide.snp.right)
       make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
       make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-        .offset(-(bannerView3!.bounds.height + FreestarConstants.bannerContainerTopMargin))
+        .offset(-(bannerView1!.bounds.height + FreestarConstants.bannerContainerTopMargin))
     }
     
-    self.view.addSubview(bannerView3!)
-    bannerView3!.snp.makeConstraints { (make) -> Void in
+    self.view.addSubview(bannerView1!)
+    bannerView1!.snp.makeConstraints { (make) -> Void in
       make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-      make.centerX.equalTo(bannerView3!.superview!)
+      make.centerX.equalTo(bannerView1!.superview!)
     }
     
     let request = ModeratorRequest.from(site: site)
@@ -196,10 +256,7 @@ extension ModeratorsListViewController: ModeratorsViewModelDelegate {
 
   func onFetchFailed(with reason: String) {
     indicatorView.stopAnimating()
-
-    let title = "Warning".localizedString
-    let action = UIAlertAction(title: "OK".localizedString, style: .default)
-    displayAlert(with: title , message: reason, actions: [action])
+    print("StackExchange Fetch error: \(reason)")
   }
 }
 

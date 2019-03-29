@@ -1,5 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '11.0'
 use_frameworks!
 
 target 'StackExchange' do
@@ -7,4 +7,5 @@ target 'StackExchange' do
    pod 'SnapKit'
    pod 'PrebidMobileFS'
    pod 'FSAdSDK/Banner'
+   pod 'OAuthSwift', '~> 1.3.0'
 end

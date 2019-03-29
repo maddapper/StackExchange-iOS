@@ -27,6 +27,7 @@
 /// THE SOFTWARE.
 
 import UIKit
+import OAuthSwift
 
 class ModeratorsSearchViewController: UIViewController {
   private enum SegueIdentifiers {
@@ -54,6 +55,32 @@ class ModeratorsSearchViewController: UIViewController {
     }
     
     siteTextField.setBottomBorder()
+//    authorize()
+  }
+  
+  private func authorize() {
+    //oauth flow
+    //    "client_id" : "14744",
+    //    "client_secret" : "j4h25l5NIHWtywMIESxC3Q(("]
+    let oauthswift = OAuth2Swift(
+      consumerKey:    "14744",
+      consumerSecret: "j4h25l5NIHWtywMIESxC3Q",    // No secret required
+      authorizeUrl:   "https://stackoverflow.com/oauth",
+      accessTokenUrl: "https://stackoverflow.com/oauth/access_token",
+      responseType:   "token"
+    )
+    
+    let handle = oauthswift.authorize(
+      withCallbackURL: URL(string: "https://stackoverflow.com/oauth/login_success")!,
+      scope: "no_expiry", state:"",
+      success: { credential, response, parameters in
+        print(credential.oauthToken)
+        // Do your request
+    },
+      failure: { error in
+        print(error.localizedDescription)
+    }
+    )
   }
   
   override func viewWillAppear(_ animated: Bool) {
