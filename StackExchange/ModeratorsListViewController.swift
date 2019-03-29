@@ -31,7 +31,7 @@ import FSAdSDK
 import GoogleMobileAds
 import SnapKit
 
-class ModeratorsListViewController: UIViewController, AlertDisplayer {
+class ModeratorsListViewController: UIViewController {
   private enum CellIdentifiers {
     static let list = "List"
   }
@@ -196,10 +196,7 @@ extension ModeratorsListViewController: ModeratorsViewModelDelegate {
 
   func onFetchFailed(with reason: String) {
     indicatorView.stopAnimating()
-
-    let title = "Warning".localizedString
-    let action = UIAlertAction(title: "OK".localizedString, style: .default)
-    displayAlert(with: title , message: reason, actions: [action])
+    print("StackExchange Fetch error: \(reason)")
   }
 }
 
