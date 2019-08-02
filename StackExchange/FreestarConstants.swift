@@ -34,8 +34,8 @@ struct FreestarConstants {
   static let adPlacement1 = "Freestar_Test_320x50"
   static let adPlacement2 = "Freestar_Test_300x250"
   static let adPlacement3 = "Freestar_Test_320x100"
-  static let listViewModulus = 18
-  static let bannerCount = 2
+  static let listViewModulus = 10
+  static let bannerCount = 3
   static let listCellHeight = CGFloat(60)
   static let bannerContainerTopMargin = CGFloat(10)
 }

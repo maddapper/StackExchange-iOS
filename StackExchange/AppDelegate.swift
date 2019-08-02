@@ -49,8 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Freestar Mobile SDK setup
     PBAnalyticsManager.sharedInstance()?.enabled = true
     
-//    FSAdSDK.overrideBundleIdentifier("")
-//    PrebidMobile.overrideBundleIdentifier("")
+//    FSAdSDK.overrideBundleIdentifier("com.autodesk.ios.pixlrexpressplus")
+//    PrebidMobile.overrideBundleIdentifier("com.autodesk.ios.pixlrexpressplus")
+    FSAdSDK.overrideBundleIdentifier("com.Design-Menace.Barstool-Sports")
+    PrebidMobile.overrideBundleIdentifier("com.Design-Menace.Barstool-Sports")
+
     
     print("[Freestar_Validation]: Begin ad unit registration.")
     FSRegistration.register { (status, adUnits) in
