@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		054300BB2234A065004397BB /* ModeratorsListViewController+Freestar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054300BA2234A065004397BB /* ModeratorsListViewController+Freestar.swift */; };
 		054300BD2236DCB5004397BB /* FreestarConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054300BC2236DCB5004397BB /* FreestarConstants.swift */; };
+		05E22DB722F6320C00C94954 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E22DB622F6320C00C94954 /* UIView+Extensions.swift */; };
 		1E553CD42042D0430078A8B4 /* ModeratorRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E553CD32042D0430078A8B4 /* ModeratorRequest.swift */; };
 		1E6624E82041BC730054472B /* PagedModeratorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6624E72041BC730054472B /* PagedModeratorResponse.swift */; };
 		1E8337A32042F53900265603 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8337A22042F53900265603 /* Double+Extensions.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		054300BA2234A065004397BB /* ModeratorsListViewController+Freestar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModeratorsListViewController+Freestar.swift"; sourceTree = "<group>"; };
 		054300BC2236DCB5004397BB /* FreestarConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreestarConstants.swift; sourceTree = "<group>"; };
+		05E22DB622F6320C00C94954 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		1E553CD32042D0430078A8B4 /* ModeratorRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeratorRequest.swift; sourceTree = "<group>"; };
 		1E6624E72041BC730054472B /* PagedModeratorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedModeratorResponse.swift; sourceTree = "<group>"; };
 		1E8337A22042F53900265603 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				1E8337A22042F53900265603 /* Double+Extensions.swift */,
 				9AA04258203C887D00227AEA /* String+Extensions.swift */,
 				9AA04255203C887D00227AEA /* UITextField+Extensions.swift */,
+				05E22DB622F6320C00C94954 /* UIView+Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -250,7 +253,7 @@
 				TargetAttributes = {
 					D2A5F1FF1F4A9144005CD714 = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1030;
 					};
 				};
 			};
@@ -351,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05E22DB722F6320C00C94954 /* UIView+Extensions.swift in Sources */,
 				9AA04269203C887E00227AEA /* String+Extensions.swift in Sources */,
 				9AA04270203C887E00227AEA /* ModeratorsViewModel.swift in Sources */,
 				9AA04273203C887E00227AEA /* ModeratorsSearchViewController.swift in Sources */,

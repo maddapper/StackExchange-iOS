@@ -76,7 +76,7 @@ extension ModeratorsListViewController {
         return bannerView1
       case 1:
         return bannerView2
-      case 2:
+      case 2:        
         return bannerView3
       default:
         preconditionFailure("Freestar banner index is not being calculated correctly.")
@@ -91,11 +91,20 @@ extension ModeratorsListViewController {
     let bannerIndex = divisor % FreestarConstants.bannerCount
     switch bannerIndex {
     case 0:
-      return CGSize(width: 320, height: 52)
+      if (bannerView1!.fsIsAdLoaded) {
+        return CGSize(width: 320, height: 52)
+      }
+      return CGSize.zero
     case 1:
-      return CGSize(width: 320, height: 52)
+      if (bannerView2!.fsIsAdLoaded) {
+        return CGSize(width: 300, height: 252)
+      }
+      return CGSize.zero
     case 2:      
-      return CGSize(width: 320, height: 52)
+      if (bannerView3!.fsIsAdLoaded) {
+        return CGSize(width: 320, height: 102)
+      }
+      return CGSize.zero
     default:
       preconditionFailure("Freestar banner index is not being calculated correctly.")
     }

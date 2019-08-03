@@ -62,28 +62,53 @@ class ModeratorsListViewController: UIViewController {
   lazy var bannerView1: (UIView & FSBanner)? = {
     let banner = FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement1, size: kGADAdSizeBanner, adUnitId: adUnitID1, registrationDelegate: nil, eventHandler: { [weak self]
       (methodName: String, params: [ String : Any]) in
-      // custom behavior here
-      print("methodName: \(methodName) adUnit: \(self!.adUnitID1)")
+      self?.tableView.beginUpdates()
+      
+      if (DFPEventNameBanner.adViewDidReceiveAd.rawValue == methodName) {
+        self?.bannerView1!.fsIsAdLoaded = true
+      } else if (DFPEventNameBanner.adViewDidFailToReceiveAd.rawValue == methodName) {
+        self?.bannerView1!.fsIsAdLoaded = false
+      }
+      
+      self?.tableView.endUpdates()
     })
     banner?.rootViewController = self;
     return banner;
   }()
   
   lazy var bannerView2: (UIView & FSBanner)? = {
-    let banner = FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement2, size: kGADAdSizeBanner, adUnitId: adUnitID2, registrationDelegate: nil, eventHandler: { [weak self]
+    let banner = FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement2, size: kGADAdSizeMediumRectangle, adUnitId: adUnitID2, registrationDelegate: nil, eventHandler: { [weak self]
       (methodName: String, params: [ String : Any]) in
-      // custom behavior here
-      print("methodName: \(methodName) adUnit: \(self!.adUnitID2)")
+      self?.tableView.beginUpdates()
+      
+      if (DFPEventNameBanner.adViewDidReceiveAd.rawValue == methodName) {
+        // randomize ad loading bool for testing
+        self?.bannerView2!.fsIsAdLoaded = Bool.random()
+//        self?.bannerView2!.fsIsAdLoaded = true
+      } else if (DFPEventNameBanner.adViewDidFailToReceiveAd.rawValue == methodName) {
+        self?.bannerView2!.fsIsAdLoaded = false
+      }
+      
+      self?.tableView.endUpdates()
     })
     banner?.rootViewController = self;
     return banner;
   }()
   
   lazy var bannerView3: (UIView & FSBanner)? = {
-    let banner = FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement3, size: kGADAdSizeBanner, adUnitId: adUnitID3, registrationDelegate: nil, eventHandler: { [weak self]
+    let banner = FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement3, size: kGADAdSizeLargeBanner, adUnitId: adUnitID3, registrationDelegate: nil, eventHandler: { [weak self]
       (methodName: String, params: [ String : Any]) in
-      // custom behavior here
-      print("methodName: \(methodName) adUnit: \(self!.adUnitID3)")
+      self?.tableView.beginUpdates()
+      
+      if (DFPEventNameBanner.adViewDidReceiveAd.rawValue == methodName) {
+        // randomize ad loading bool for testing
+        self?.bannerView3!.fsIsAdLoaded = Bool.random()
+//        self?.bannerView3!.fsIsAdLoaded = true
+      } else if (DFPEventNameBanner.adViewDidFailToReceiveAd.rawValue == methodName) {
+        self?.bannerView3!.fsIsAdLoaded = false
+      }
+      
+      self?.tableView.endUpdates()
     })
     banner?.rootViewController = self;
     return banner;
@@ -146,7 +171,6 @@ class ModeratorsListViewController: UIViewController {
 
 extension ModeratorsListViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    // 1
     return viewModel.totalCount
   }
   
@@ -158,13 +182,14 @@ extension ModeratorsListViewController: UITableViewDataSource, UITableViewDelega
       cell.removeFromSuperview()
       // setup banner cell
       let bannerCell: UITableViewCell = UITableViewCell()
+      bannerCell.clipsToBounds = true
       bannerCell.backgroundColor = UIColor.groupTableViewBackground
       let banner: (UIView & FSBanner)? = bannerForIndex(indexPath.row)
+      banner?.fsCurrentTableRowIndex = indexPath.row
       bannerCell.contentView.addSubview(banner!)
       anchorBanner(banner, size: banner!.fsAdSize)
       return bannerCell
     } else {
-      // 2
       if isLoadingCell(for: indexPath) {
         cell.configure(with: .none)
       } else {
