@@ -44,9 +44,9 @@ extension ModeratorsListViewController {
   
   // banner layout
   func anchorBanners() {
-    anchorBanner(bannerView1, size: CGSize(width: 300, height: 250))
-    anchorBanner(bannerView2, size: CGSize(width: 320, height: 100))
-    anchorBanner(bannerView3, size: CGSize(width: 320, height: 50))
+    anchorBanner(bannerView1, size: CGSize(width: 320, height: 50))
+    anchorBanner(bannerView2, size: CGSize(width: 300, height: 250))
+    anchorBanner(bannerView3, size: CGSize(width: 300, height: 250))
   }
   
   // layout helper
@@ -102,7 +102,7 @@ extension ModeratorsListViewController {
       return CGSize.zero
     case 2:      
       if (bannerView3!.fsIsAdLoaded) {
-        return CGSize(width: 320, height: 102)
+        return CGSize(width: 300, height: 252)
       }
       return CGSize.zero
     default:

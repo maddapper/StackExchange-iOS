@@ -34,7 +34,8 @@ import PrebidMobileFS
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+  func application(_ application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // method to initialize the Freestar SDK
     initializeFreestar()
     return true
@@ -48,11 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // Freestar Mobile SDK setup
     PBAnalyticsManager.sharedInstance()?.enabled = true
-    
-//    FSAdSDK.overrideBundleIdentifier("com.autodesk.ios.pixlrexpressplus")
-//    PrebidMobile.overrideBundleIdentifier("com.autodesk.ios.pixlrexpressplus")
-    FSAdSDK.overrideBundleIdentifier("com.Design-Menace.Barstool-Sports")
-    PrebidMobile.overrideBundleIdentifier("com.Design-Menace.Barstool-Sports")
+    FSAdSDK.overrideBundleIdentifier("com.stocktwits.StockTwits")
 
     
     print("[Freestar_Validation]: Begin ad unit registration.")

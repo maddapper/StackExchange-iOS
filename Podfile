@@ -1,9 +1,10 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
 target 'StackExchange' do
-   pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/freestarcapital/GMA-iOS-SDK.git', :tag => '7.41.0'
-   pod 'SnapKit'   
+   pod 'Google-Mobile-Ads-SDK', '7.50.0'
+   pod 'SnapKit'
    pod 'FSAdSDK/Banner'
+   pod 'FSAdSDK/Mediation/Facebook'
 end

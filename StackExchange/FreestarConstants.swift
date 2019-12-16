@@ -30,10 +30,10 @@ import Foundation
 import CoreGraphics
 
 struct FreestarConstants {
-  static let dfpAccountId = "15184186"
-  static let adPlacement1 = "Freestar_Test_320x50"
-  static let adPlacement2 = "Freestar_Test_300x250"
-  static let adPlacement3 = "Freestar_Test_320x100"
+  static let dfpAccountId = "21714852354"
+  static let adPlacement1 = "stocktwits_iOSApp_320x50_symbol"
+  static let adPlacement2 = "stocktwits_iOSApp_300x250_symbol"
+  static let adPlacement3 = "stocktwits_iOSApp_300x250_symbol_2"
   static let listViewModulus = 10
   static let bannerCount = 3
   static let listCellHeight = CGFloat(60)

@@ -1,66 +1,98 @@
 PODS:
-  - FSAdSDK/Banner (0.4.5):
+  - FBAudienceNetwork (5.6.0):
+    - FBSDKCoreKit/Basics (>= 5.6.0)
+  - FBSDKCoreKit/Basics (5.13.0)
+  - FSAdSDK/Banner (0.6.2):
     - FSAdSDK/Core
-    - FSAdSDK/DFP
-    - FSCache
-    - PrebidMobileFS (~> 0.6.0)
-    - Protobuf
-  - FSAdSDK/Common (0.4.5):
-    - FSCache
-    - PrebidMobileFS (~> 0.6.0)
-    - Protobuf
-  - FSAdSDK/Core (0.4.5):
-    - FSAdSDK/Common
+  - FSAdSDK/Core (0.6.2):
     - FSAdSDK/Registration
     - FSCache
-    - PrebidMobileFS (~> 0.6.0)
-    - Protobuf
-  - FSAdSDK/DFP (0.4.5):
+    - FSCommon
+    - FSDFP
+    - PrebidMobileFS (~> 0.6.1)
+    - Protobuf (~> 3.10.0)
+  - FSAdSDK/Mediation/Facebook (0.6.2):
+    - FBAudienceNetwork (= 5.6.0)
+    - Google-Mobile-Ads-SDK (= 7.50.0)
+  - FSAdSDK/Registration (0.6.2)
+  - FSCache (2.2.3)
+  - FSCommon (1.1.1)
+  - FSDFP (7.50.1):
     - FSCache
-    - PrebidMobileFS (~> 0.6.0)
-    - Protobuf
-  - FSAdSDK/Registration (0.4.5):
+    - FSCommon
+    - Google-Mobile-Ads-SDK (= 7.50.0)
+    - PrebidMobileFS (~> 0.6.1)
+  - Google-Mobile-Ads-SDK (7.50.0):
+    - GoogleAppMeasurement (~> 6.0)
+  - GoogleAppMeasurement (6.1.6):
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/MethodSwizzler (~> 6.0)
+    - GoogleUtilities/Network (~> 6.0)
+    - "GoogleUtilities/NSData+zlib (~> 6.0)"
+    - nanopb (= 0.3.9011)
+  - GoogleUtilities/AppDelegateSwizzler (6.3.2):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (6.3.2)
+  - GoogleUtilities/Logger (6.3.2):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (6.3.2):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (6.3.2):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (6.3.2)"
+  - GoogleUtilities/Reachability (6.3.2):
+    - GoogleUtilities/Logger
+  - nanopb (0.3.9011):
+    - nanopb/decode (= 0.3.9011)
+    - nanopb/encode (= 0.3.9011)
+  - nanopb/decode (0.3.9011)
+  - nanopb/encode (0.3.9011)
+  - PrebidMobileFS (0.6.3):
     - FSCache
-    - PrebidMobileFS (~> 0.6.0)
-    - Protobuf
-  - FSCache (0.0.1)
-  - Google-Mobile-Ads-SDK (7.41.0)
-  - PrebidMobileFS (0.6.0):
-    - FSCache
-  - Protobuf (3.9.0)
+  - Protobuf (3.10.0)
   - SnapKit (4.2.0)
 
 DEPENDENCIES:
   - FSAdSDK/Banner
-  - Google-Mobile-Ads-SDK (from `https://github.com/freestarcapital/GMA-iOS-SDK.git`, tag `7.41.0`)
+  - FSAdSDK/Mediation/Facebook
+  - Google-Mobile-Ads-SDK (= 7.50.0)
   - SnapKit
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
+    - FBAudienceNetwork
+    - FBSDKCoreKit
     - FSAdSDK
     - FSCache
+    - FSCommon
+    - FSDFP
+    - Google-Mobile-Ads-SDK
+    - GoogleAppMeasurement
+    - GoogleUtilities
+    - nanopb
     - PrebidMobileFS
     - Protobuf
     - SnapKit
 
-EXTERNAL SOURCES:
-  Google-Mobile-Ads-SDK:
-    :git: https://github.com/freestarcapital/GMA-iOS-SDK.git
-    :tag: 7.41.0
-
-CHECKOUT OPTIONS:
-  Google-Mobile-Ads-SDK:
-    :git: https://github.com/freestarcapital/GMA-iOS-SDK.git
-    :tag: 7.41.0
-
 SPEC CHECKSUMS:
-  FSAdSDK: 7acb8542f8a37231d259a265b407143a5a161661
-  FSCache: c6ea4c84d130a4125f95899b2ce2e0b685e44f92
-  Google-Mobile-Ads-SDK: d335cdac89ba0dfc82ac6458d536e1c52a24c443
-  PrebidMobileFS: e7ded8c2dfa62bbaed9239502dd2438f4ed044d9
-  Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
+  FBAudienceNetwork: 1ea63543665445a3a5b4a059e8210a343b6ab3c1
+  FBSDKCoreKit: b1645dba3dfdba6102f2d4026fdbfca8114dc229
+  FSAdSDK: 419a4ca344e8b87447012ce3387de73d67bbd093
+  FSCache: 0f36e27be3a9f21b325778d5472507d332c1455b
+  FSCommon: 2c0458164512038890b1e0b492ab8d7a241519d9
+  FSDFP: d6fb0a67bf7b44c8be84226a705b4d886b175a4e
+  Google-Mobile-Ads-SDK: d48dbaf5bae1ab7a94a9786f493c26c454bc6f16
+  GoogleAppMeasurement: dfe55efa543e899d906309eaaac6ca26d249862f
+  GoogleUtilities: 547a86735c6f0ee30ad17e94df4fc21f616b71cb
+  nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  PrebidMobileFS: 31ba56ee60ff2f05486517ab5a11d44a5a1c0541
+  Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 10037cf513abe559deff35e3035a645c5694a0aa
+PODFILE CHECKSUM: f19a22671e344e37829972810897a20add67ca80
 
-COCOAPODS: 1.6.0.rc.2
+COCOAPODS: 1.8.4

@@ -50,13 +50,13 @@ class ModeratorsListViewController: UIViewController {
   // so max 3 will be visible on the screen
   
   private lazy var adUnitID1 = {
-    return "/\(FreestarConstants.dfpAccountId)/\(FreestarConstants.adPlacement1)"
+    return "/\(FreestarConstants.dfpAccountId)/stocktwitsiphoneapp/symbol"
   }()
   private lazy var adUnitID2 = {
-    return "/\(FreestarConstants.dfpAccountId)/\(FreestarConstants.adPlacement2)"
+    return "/\(FreestarConstants.dfpAccountId)/stocktwitsiphoneapp/symbol"
   }()
   private lazy var adUnitID3 = {
-    return "/\(FreestarConstants.dfpAccountId)/\(FreestarConstants.adPlacement3)"
+    return "/\(FreestarConstants.dfpAccountId)/stocktwitsiphoneapp/symbol"
   }()
 
   lazy var bannerView1: (UIView & FSBanner)? = {
@@ -83,8 +83,8 @@ class ModeratorsListViewController: UIViewController {
       
       if (DFPEventNameBanner.adViewDidReceiveAd.rawValue == methodName) {
         // randomize ad loading bool for testing
-        self?.bannerView2!.fsIsAdLoaded = Bool.random()
-//        self?.bannerView2!.fsIsAdLoaded = true
+        // self?.bannerView2!.fsIsAdLoaded = Bool.random()
+        self?.bannerView2!.fsIsAdLoaded = true
       } else if (DFPEventNameBanner.adViewDidFailToReceiveAd.rawValue == methodName) {
         self?.bannerView2!.fsIsAdLoaded = false
       }
@@ -96,14 +96,14 @@ class ModeratorsListViewController: UIViewController {
   }()
   
   lazy var bannerView3: (UIView & FSBanner)? = {
-    let banner = FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement3, size: kGADAdSizeLargeBanner, adUnitId: adUnitID3, registrationDelegate: nil, eventHandler: { [weak self]
+    let banner = FSAdProvider.createBanner(withIdentifier: FreestarConstants.adPlacement3, size: kGADAdSizeMediumRectangle, adUnitId: adUnitID3, registrationDelegate: nil, eventHandler: { [weak self]
       (methodName: String, params: [ String : Any]) in
       self?.tableView.beginUpdates()
       
       if (DFPEventNameBanner.adViewDidReceiveAd.rawValue == methodName) {
         // randomize ad loading bool for testing
-        self?.bannerView3!.fsIsAdLoaded = Bool.random()
-//        self?.bannerView3!.fsIsAdLoaded = true
+        // self?.bannerView3!.fsIsAdLoaded = Bool.random()
+        self?.bannerView3!.fsIsAdLoaded = true
       } else if (DFPEventNameBanner.adViewDidFailToReceiveAd.rawValue == methodName) {
         self?.bannerView3!.fsIsAdLoaded = false
       }
